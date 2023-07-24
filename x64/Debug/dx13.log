@@ -1,0 +1,126 @@
+﻿  DX14Texture.cpp
+  ModelShader.cpp
+  ShaderBase.cpp
+C:\Users\PC\Desktop\实习\Final Version\source\Bindable\Shader\ShaderBase.cpp(57,63): warning C4267: “参数”: 从“size_t”转换到“UINT”，可能丢失数据
+  ShadowMapShader.cpp
+  SkyBoxShadowMapShader.cpp
+  DDSTextureLoader.cpp
+  Drawable.cpp
+  PixelShader.cpp
+  VertexBuffer.cpp
+  VertexShader.cpp
+  main.cpp
+C:\Users\PC\Desktop\实习\Final Version\include\d4dApp.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  Bindable.cpp
+  d4dApp.cpp
+C:\Users\PC\Desktop\实习\Final Version\include\d4dApp.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  DirectX14App.cpp
+C:\Users\PC\Desktop\实习\Final Version\include\d4dApp.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  IndexBuffer.cpp
+  Camera.cpp
+  d3dUtil.cpp
+  Floor.cpp
+  Model.cpp
+  SingleTriangle.cpp
+  正在生成代码...
+  正在编译...
+  Skybox.cpp
+C:\Users\PC\Desktop\实习\Final Version\source\Drawable\Skybox.cpp(25,31): warning C4267: “=”: 从“size_t”转换到“UINT”，可能丢失数据
+  FrameResource.cpp
+  GameTimer.cpp
+  GeometryGenerator.cpp
+  GLTFloader.cpp
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(66,90): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(66,70): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(66,50): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(66,30): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(65,88): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(65,68): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(65,48): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(65,29): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(64,86): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(64,67): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(64,48): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(64,29): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(63,86): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(63,67): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(63,48): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(63,29): warning C4244: “参数”: 从“_Ty”转换到“float”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(181,24): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+C:\Users\PC\Desktop\实习\Final Version\source\GLTFloader.cpp(195,18): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  MathHelper.cpp
+  Renderer.cpp
+C:\Users\PC\Desktop\实习\Final Version\source\Renderer.cpp(231,86): warning C4267: “参数”: 从“size_t”转换到“UINT”，可能丢失数据
+C:\Users\PC\Desktop\实习\Final Version\source\Renderer.cpp(234,68): warning C4267: “参数”: 从“size_t”转换到“UINT”，可能丢失数据
+C:\Users\PC\Desktop\实习\Final Version\source\Renderer.cpp(237,68): warning C4267: “参数”: 从“size_t”转换到“UINT”，可能丢失数据
+C:\Users\PC\Desktop\实习\Final Version\source\Renderer.cpp(241,62): warning C4267: “参数”: 从“size_t”转换到“UINT”，可能丢失数据
+  ShadowMap.cpp
+  Texture2D.cpp
+C:\Users\PC\Desktop\实习\Final Version\include\d3dApp.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  Part.cpp
+  正在生成代码...
+  dx13.vcxproj -> C:\Users\PC\Desktop\实习\Final Version\x64\Debug\dx13.exe
