@@ -52,6 +52,7 @@ public:
 	void DestructorInApp();
 	void SetRenderToDrawToScreen();
 	void SetRenderToDrawToShadowMap();
+	void DrawImGui();
 
 	std::array<const CD3DX12_STATIC_SAMPLER_DESC, 7> GetStaticSamplers();
 	ID3D12Device* GetDevice()
@@ -185,10 +186,21 @@ private:
 
 	Camera m_CameraForShadow;
 	std::unique_ptr<ShadowMap> m_NewShadowMap;
+	// *************** End of Shadow affairs ***************
+
+
+	// *************** Imgui ***************
+	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_SrvHeapForImgui;
+
+
+	// *************** Eend of Imgui ***************
+
 	DirectX::BoundingSphere m_SceneBounds;
 	// TO-DO: Light System need to be completed, these rotated light is just for testing shadow.
+	// TO-DO: Light System should be removed from class Renderer
 	float m_LightNearZ = 0.0f;
 	float m_LightFarZ = 0.0f;
+
 	DirectX::XMFLOAT3 m_LightPosW;
 	DirectX::XMFLOAT4X4 m_LightView = MathHelper::Identity4x4();
 	DirectX::XMFLOAT4X4 m_LightProj = MathHelper::Identity4x4();
@@ -228,5 +240,8 @@ private:
 	void UpdateShadowPassCB(const GameTimer& gt);
 
 	void InitShadowResource();
+
+	// ImGui affairs
+	void InitImGuiResource();
 
 };

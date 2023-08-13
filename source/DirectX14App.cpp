@@ -1,4 +1,7 @@
 #include "DirectX14App.h"
+#include "imgui.h"
+#include "imgui_impl_dx12.h"
+#include "imgui_impl_win32.h"
 
 const int gNumFrameResources = 3;
 
@@ -52,6 +55,19 @@ void DX14App::Update(const GameTimer& gt)
 void DX14App::Draw(const GameTimer& gt)
 {
 	rdr.ResetRenderer();
+
+	// Start the Dear ImGui frame
+	ImGui_ImplDX12_NewFrame();
+	ImGui_ImplWin32_NewFrame();
+	ImGui::NewFrame();
+
+	static bool show_demo_window = true;
+	// 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
+	if (show_demo_window)
+		ImGui::ShowDemoWindow(&show_demo_window);
+
+	ImGui::Render();
+
 	rdr.SetRenderToDrawToShadowMap();
 	for (auto& d : drawables)
 	{
@@ -62,6 +78,7 @@ void DX14App::Draw(const GameTimer& gt)
 	{
 		d->Draw(rdr);
 	}
+	rdr.DrawImGui();
 	rdr.PresentOneFrame();
 }
 

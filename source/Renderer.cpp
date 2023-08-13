@@ -1,6 +1,7 @@
 #include "Renderer.h"
 #include "DX14Texture.h"
 #include <xstring>
+#include "imgui_impl_dx12.h"
 
 using Microsoft::WRL::ComPtr;
 using namespace DirectX;
@@ -70,6 +71,13 @@ bool Renderer::InitRenderer(HWND hMainWnd)
 	CreateRtvAndDsvDescriptorHeaps();
 
 	InitShadowResource();
+
+	// Init ImGui
+	InitImGuiResource();
+	ImGui_ImplDX12_Init(m_Device.Get(), 3, DXGI_FORMAT_R8G8B8A8_UNORM,
+		m_SrvHeapForImgui.Get(),
+		m_SrvHeapForImgui->GetCPUDescriptorHandleForHeapStart(),
+		m_SrvHeapForImgui->GetGPUDescriptorHandleForHeapStart());
 
 	return true;
 }
@@ -172,6 +180,9 @@ void Renderer::DrawIndexed(UINT count, UINT StartIndexLocation, UINT BaseVertexL
 	CD3DX12_GPU_DESCRIPTOR_HANDLE shadowMapHandle = m_NewShadowMap->Srv();
 	ID3D12DescriptorHeap* descriptorHeaps_shadow[] = { m_SrvHeapForShadow.Get() };
 	
+
+	
+
 	for (size_t i = 0; i < m_RootParaType.size(); ++i)
 	{
 		switch (m_RootParaType[i])
@@ -197,8 +208,14 @@ void Renderer::DrawIndexed(UINT count, UINT StartIndexLocation, UINT BaseVertexL
 		}
 	}
 	
+	
 
 	m_CommandList->DrawIndexedInstanced(count, 1, StartIndexLocation, BaseVertexLocation, 0);
+
+	//// Renderer Imgui
+	//ID3D12DescriptorHeap* descriptorHeaps_Imgui[] = { m_SrvHeapForImgui.Get() };
+	//m_CommandList->SetDescriptorHeaps(1, descriptorHeaps_Imgui);
+	//ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), m_CommandList.Get());
 }
 
 void Renderer::DrawSkyBox(UINT count, UINT StartIndexLocation, UINT BaseVertexLocation, UINT ObjIndex)
@@ -516,6 +533,24 @@ void Renderer::InitShadowResource()
 		CD3DX12_GPU_DESCRIPTOR_HANDLE(srvForShadowGPUStart),
 		CD3DX12_CPU_DESCRIPTOR_HANDLE(dsvForShadowCPUStart)
 	);
+}
+
+void Renderer::InitImGuiResource()
+{
+	D3D12_DESCRIPTOR_HEAP_DESC srvHeapDesc = {};
+	srvHeapDesc.NumDescriptors = 1;
+	srvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
+	srvHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
+	ThrowIfFailed(m_Device->CreateDescriptorHeap(&srvHeapDesc,
+		IID_PPV_ARGS(m_SrvHeapForImgui.GetAddressOf())));
+}
+
+void Renderer::DrawImGui()
+{
+	// Renderer Imgui
+	ID3D12DescriptorHeap* descriptorHeaps_Imgui[] = { m_SrvHeapForImgui.Get() };
+	m_CommandList->SetDescriptorHeaps(1, descriptorHeaps_Imgui);
+	ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), m_CommandList.Get());
 }
 
 void Renderer::SetRenderToDrawToScreen()

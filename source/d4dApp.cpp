@@ -4,10 +4,14 @@
 
 #include "../include/d4dApp.h"
 #include <WindowsX.h>
+#include "imgui_impl_win32.h"
 
 using Microsoft::WRL::ComPtr;
 using namespace std;
 using namespace DirectX;
+
+
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 LRESULT CALLBACK
 MainWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -242,6 +246,11 @@ void D4DApp::OnResize()
 
 LRESULT D4DApp::MsgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
+	if (ImGui_ImplWin32_WndProcHandler(hwnd, msg, wParam, lParam))
+	{
+		return true;
+	}
+
 	switch (msg)
 	{
 		// WM_ACTIVATE is sent when the window is activated or deactivated.  
@@ -413,6 +422,8 @@ bool D4DApp::InitMainWindow()
 
 	ShowWindow(mhMainWnd, SW_SHOW);
 	UpdateWindow(mhMainWnd);
+	// Init ImGui Win32 Impl
+	ImGui_ImplWin32_Init(mhMainWnd);
 
 	return true;
 }

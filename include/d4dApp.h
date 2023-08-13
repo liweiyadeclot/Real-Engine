@@ -9,6 +9,7 @@
 #include "d3dUtil.h"
 #include "GameTimer.h"
 #include "Renderer.h"
+#include "ImguiManager.h"
 
 // Link necessary d3d12 libraries.
 #pragma comment(lib,"d3dcompiler.lib")
@@ -72,16 +73,17 @@ protected:
     bool      mResizing = false;   // are the resize bars being dragged?
     bool      mFullscreenState = false;// fullscreen enabled
 
-    // Set true to use 4X MSAA (§4.1.8).  The default is false.
+    // Set true to use 4X MSAA (?.1.8).  The default is false.
     bool      m4xMsaaState = false;    // 4X MSAA enabled
     UINT      m4xMsaaQuality = 0;      // quality level of 4X MSAA
 
-    // Used to keep track of the “delta-time” and game time (§4.4).
+    // Used to keep track of the “delta-time?and game time (?.4).
     GameTimer mTimer;
 
 
     std::wstring mMainWndCaption = L"Real Engine";
 
+    ImguiManager imguiMana;
 
 };
 
