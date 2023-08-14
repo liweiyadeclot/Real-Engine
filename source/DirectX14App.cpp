@@ -9,7 +9,7 @@ DX14App::DX14App(HINSTANCE hInstance)
 	: D4DApp(hInstance)
 {
 	rdr.SetSceneCenter(0.0f, 0.0f, 0.0f);
-	rdr.SetSceneRadius(sqrtf(10.0f * 10.0f + 15.0f * 15.0f));
+	rdr.SetSceneRadius(sqrtf(5.0f * 5.0f + 7.5f * 7.5f));
 }
 
 DX14App::~DX14App()

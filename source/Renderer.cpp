@@ -441,7 +441,8 @@ void Renderer::UpdateShadowTransform(const GameTimer& gt)
 	using namespace DirectX;
 	// Only the first "main" light casts a shadow.
 	XMVECTOR lightDir = XMLoadFloat3(&m_RotatedLightDirections[0]);
-	XMVECTOR lightPos = -0.5f * m_SceneBounds.Radius * lightDir;
+	// XMVECTOR lightPos = -0.1f * m_SceneBounds.Radius * lightDir;
+	XMVECTOR lightPos = XMLoadFloat3(&m_TestImGuiLightPos);
 	XMVECTOR targetPos = XMLoadFloat3(&m_SceneBounds.Center);
 	XMVECTOR lightUp = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
 	XMMATRIX lightView = XMMatrixLookAtLH(lightPos, targetPos, lightUp);
@@ -551,6 +552,11 @@ void Renderer::SpawnLightControlWindow()
 	{
 		ImGui::Text("Color");
 		ImGui::ColorEdit3("Diffuse Color", &m_TestImGuiLightColor.x);
+
+		ImGui::Text("Position");
+		ImGui::SliderFloat("X", &m_TestImGuiLightPos.x, -60.0f, 60.0f, "%.1f");
+		ImGui::SliderFloat("Y", &m_TestImGuiLightPos.y, -60.0f, 60.0f, "%.1f");
+		ImGui::SliderFloat("Z", &m_TestImGuiLightPos.z, -60.0f, 60.0f, "%.1f");
 	}
 	ImGui::End();
 }

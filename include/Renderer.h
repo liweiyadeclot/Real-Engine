@@ -53,9 +53,10 @@ public:
 	void SetRenderToDrawToScreen();
 	void SetRenderToDrawToShadowMap();
 
+	// ******************* Test for ImGui ******************
 	void DrawImGui();
 	void SpawnLightControlWindow();
-
+	//  ******************* ******************* *******************
 	std::array<const CD3DX12_STATIC_SAMPLER_DESC, 7> GetStaticSamplers();
 	ID3D12Device* GetDevice()
 	{
@@ -216,6 +217,7 @@ private:
 	};
 	DirectX::XMFLOAT3 m_RotatedLightDirections[3];	
 	DirectX::XMFLOAT3 m_TestImGuiLightColor = { 1.0f, 1.0f, 1.0f };
+	DirectX::XMFLOAT3 m_TestImGuiLightPos = { 1.0f, 1.0f, 1.0f };
 private:
 	void CreateCommandObjects();
 	void CreateSwapChain();
