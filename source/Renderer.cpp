@@ -236,10 +236,6 @@ void Renderer::DrawSkyBox(UINT count, UINT StartIndexLocation, UINT BaseVertexLo
 	CD3DX12_GPU_DESCRIPTOR_HANDLE texHandle(m_SrvDescriptorHeaps[ObjIndex]->GetGPUDescriptorHandleForHeapStart());
 	ID3D12DescriptorHeap* descriptorHeaps[] = { m_SrvDescriptorHeaps[ObjIndex].Get() };
 
-
-	
-
-
 	for (size_t i = 0; i < m_RootParaType.size(); ++i)
 	{
 		switch (m_RootParaType[i])
