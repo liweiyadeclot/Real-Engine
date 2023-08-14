@@ -545,6 +545,16 @@ void Renderer::InitImGuiResource()
 		IID_PPV_ARGS(m_SrvHeapForImgui.GetAddressOf())));
 }
 
+void Renderer::SpawnLightControlWindow()
+{
+	if (ImGui::Begin("Light"))
+	{
+		ImGui::Text("Color");
+		ImGui::ColorEdit3("Diffuse Color", &m_TestImGuiLightColor.x);
+	}
+	ImGui::End();
+}
+
 void Renderer::DrawImGui()
 {
 	// Renderer Imgui
@@ -816,7 +826,8 @@ void Renderer::UpdateMainPassCB(const GameTimer& gt)
 	m_MainPassCB.AmbientLight = { 0.2f, 0.2f, 0.2f, 1.0f };
 
 	m_MainPassCB.Lights[0].Direction = m_RotatedLightDirections[0];
-	m_MainPassCB.Lights[0].Strength = { 1.9f, 1.9f, 1.9f };
+	m_MainPassCB.Lights[0].Strength = m_TestImGuiLightColor;
+
 	m_MainPassCB.Lights[1].Direction = m_RotatedLightDirections[1];
 	m_MainPassCB.Lights[1].Strength = { 0.4f, 0.4f, 0.4f };
 	m_MainPassCB.Lights[2].Direction = m_RotatedLightDirections[2];

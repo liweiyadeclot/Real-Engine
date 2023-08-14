@@ -66,6 +66,8 @@ void DX14App::Draw(const GameTimer& gt)
 	if (show_demo_window)
 		ImGui::ShowDemoWindow(&show_demo_window);
 
+	rdr.SpawnLightControlWindow();
+
 	ImGui::Render();
 
 	rdr.SetRenderToDrawToShadowMap();

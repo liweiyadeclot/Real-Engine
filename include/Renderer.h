@@ -52,7 +52,9 @@ public:
 	void DestructorInApp();
 	void SetRenderToDrawToScreen();
 	void SetRenderToDrawToShadowMap();
+
 	void DrawImGui();
+	void SpawnLightControlWindow();
 
 	std::array<const CD3DX12_STATIC_SAMPLER_DESC, 7> GetStaticSamplers();
 	ID3D12Device* GetDevice()
@@ -213,6 +215,7 @@ private:
 		DirectX::XMFLOAT3(0.0f, -0.707f, -0.707f)
 	};
 	DirectX::XMFLOAT3 m_RotatedLightDirections[3];	
+	DirectX::XMFLOAT3 m_TestImGuiLightColor = { 1.0f, 1.0f, 1.0f };
 private:
 	void CreateCommandObjects();
 	void CreateSwapChain();
@@ -243,5 +246,7 @@ private:
 
 	// ImGui affairs
 	void InitImGuiResource();
+	// TO-DO: Remove this function to LightSubSystem
+
 
 };
