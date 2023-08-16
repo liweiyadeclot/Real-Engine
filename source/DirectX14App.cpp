@@ -21,9 +21,11 @@ bool DX14App::Initialize()
 {
 	if(!D4DApp::Initialize())
 		return false;
-	drawables.push_back(std::make_unique<Skybox>(rdr));
+	// drawables.push_back(std::make_unique<Skybox>(rdr));
 	drawables.push_back(std::make_unique<Floor>(rdr));
 	drawables.push_back(std::make_unique<Model>(rdr));
+
+	Lights.push_back(std::make_unique<DirectionalLight>());
 	rdr.SetRendererState();
 	rdr.ExecuteCommands();
 	return true;
@@ -43,13 +45,25 @@ void DX14App::OnResize()
 void DX14App::Update(const GameTimer& gt)
 {
 	OnKeyboardInput(gt);
-	
+
 	rdr.UpdateRenderer(gt);
 
 	for (auto& d : drawables)
 	{
 		d->Update(gt.DeltaTime(), rdr);
 	}
+
+	for (size_t i = 0; i < Lights.size(); ++i)
+	{
+		Lights[i]->UpdateShadowTransform(0.0f, 0.0f, 0.0f, sqrtf(5.0f * 5.0f + 7.5f * 7.5f));
+		Lights[i]->UpdateDataToRenderer(rdr, i);
+	}
+	
+	// only first light can make shadow
+	if(Lights.size() > 0)
+		Lights[0]->UpdateShadowPassCB(rdr);
+
+	
 }
 
 void DX14App::Draw(const GameTimer& gt)
@@ -66,7 +80,11 @@ void DX14App::Draw(const GameTimer& gt)
 	if (show_demo_window)
 		ImGui::ShowDemoWindow(&show_demo_window);
 
-	rdr.SpawnLightControlWindow();
+	for (auto& light : Lights)
+	{
+		light->SpawnImGuiControlPanel();
+	}
+
 
 	ImGui::Render();
 

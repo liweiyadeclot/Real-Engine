@@ -17,6 +17,7 @@ class Renderer
 	friend class SkyShader;
 	friend class ShadowMapShader;
 	friend class SkyBoxShadowMapShader;
+	friend class LightBase;
 public:
 	enum class RootParaType
 	{
@@ -101,6 +102,9 @@ public:
 
 	int ObjectNum = 0;
 	int TexNum = 0;
+
+	// TO-DO: Build Light PassConstantBuffer
+	Light Lights[16];
 private:
 	HWND      m_hMainWnd = nullptr; // main window handle
 
@@ -194,13 +198,11 @@ private:
 
 	// *************** Imgui ***************
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_SrvHeapForImgui;
+	// *************** End of Imgui ***************
 
-
-	// *************** Eend of Imgui ***************
-
-	DirectX::BoundingSphere m_SceneBounds;
 	// TO-DO: Light System need to be completed, these rotated light is just for testing shadow.
 	// TO-DO: Light System should be removed from class Renderer
+	DirectX::BoundingSphere m_SceneBounds;
 	float m_LightNearZ = 0.0f;
 	float m_LightFarZ = 0.0f;
 
@@ -218,6 +220,9 @@ private:
 	DirectX::XMFLOAT3 m_RotatedLightDirections[3];	
 	DirectX::XMFLOAT3 m_TestImGuiLightColor = { 1.0f, 1.0f, 1.0f };
 	DirectX::XMFLOAT3 m_TestImGuiLightPos = { 1.0f, 1.0f, 1.0f };
+
+
+
 private:
 	void CreateCommandObjects();
 	void CreateSwapChain();

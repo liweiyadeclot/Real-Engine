@@ -144,6 +144,6 @@ float4 PS(VertexOut pin) : SV_Target
     float4 finalColor = float4(diffuseAlbedo * gLights[0].Strength, 1.0f) * lightFactor;
 
     finalColor += diffuseAlbedo * gAmbientLight;
-
+    
     return finalColor;
 }

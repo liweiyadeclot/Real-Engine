@@ -104,8 +104,8 @@ void Renderer::UpdateRenderer(const GameTimer& gt)
 	}
 
 	UpdateMainPassCB(gt);
-	UpdateShadowTransform(gt);
-	UpdateShadowPassCB(gt);
+	//UpdateShadowTransform(gt);
+	//UpdateShadowPassCB(gt);
 }
 
 void Renderer::SetSceneCenter(float x, float y, float z)
@@ -436,7 +436,7 @@ void Renderer::UpdateShadowTransform(const GameTimer& gt)
 {
 	using namespace DirectX;
 	// Only the first "main" light casts a shadow.
-	XMVECTOR lightDir = XMLoadFloat3(&m_RotatedLightDirections[0]);
+	// XMVECTOR lightDir = XMLoadFloat3(&m_RotatedLightDirections[0]);
 	// XMVECTOR lightPos = -0.1f * m_SceneBounds.Radius * lightDir;
 	XMVECTOR lightPos = XMLoadFloat3(&m_TestImGuiLightPos);
 	XMVECTOR targetPos = XMLoadFloat3(&m_SceneBounds.Center);
@@ -827,13 +827,13 @@ void Renderer::UpdateMainPassCB(const GameTimer& gt)
 
 	m_MainPassCB.AmbientLight = { 0.2f, 0.2f, 0.2f, 1.0f };
 
-	m_MainPassCB.Lights[0].Direction = m_RotatedLightDirections[0];
-	m_MainPassCB.Lights[0].Strength = m_TestImGuiLightColor;
+	m_MainPassCB.Lights[0].Direction = Lights[0].Direction;
+	m_MainPassCB.Lights[0].Strength = Lights[0].Strength;
 
-	m_MainPassCB.Lights[1].Direction = m_RotatedLightDirections[1];
+	/*m_MainPassCB.Lights[1].Direction = m_RotatedLightDirections[1];
 	m_MainPassCB.Lights[1].Strength = { 0.4f, 0.4f, 0.4f };
 	m_MainPassCB.Lights[2].Direction = m_RotatedLightDirections[2];
-	m_MainPassCB.Lights[2].Strength = { 0.2f, 0.2f, 0.2f };
+	m_MainPassCB.Lights[2].Strength = { 0.2f, 0.2f, 0.2f };*/
 
 
 	auto currPassCB = m_CurrFrameResource->PassCB.get();

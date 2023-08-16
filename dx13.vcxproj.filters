@@ -37,6 +37,12 @@
     <Filter Include="Imgui">
       <UniqueIdentifier>{e502fb92-f46c-4a8e-b886-0773b6674ad0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Lighting">
+      <UniqueIdentifier>{8c4cd6a1-64c3-455f-b0b0-30b937b316e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lighting">
+      <UniqueIdentifier>{19bd9b1d-7e7c-4733-8f36-7c187ded9299}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Camera.cpp">
@@ -152,6 +158,12 @@
     </ClCompile>
     <ClCompile Include="imgui\imgui_impl_win32.cpp">
       <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="LightBase.cpp">
+      <Filter>Source Files\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectionalLight.cpp">
+      <Filter>Source Files\Lighting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -289,6 +301,12 @@
     </ClInclude>
     <ClInclude Include="imgui\imgui_impl_win32.h">
       <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="LightBase.h">
+      <Filter>Header Files\Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectionalLight.h">
+      <Filter>Header Files\Lighting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -118,7 +118,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>$(SolutionDir)\include;$(SolutionDir)\include\Bindable;$(SolutionDir)\include\Drawable;$(SolutionDir)\include\Bindable\Shader;$(SolutionDir)\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\include;$(SolutionDir)\include\Bindable;$(SolutionDir)\include\Drawable;$(SolutionDir)\include\Bindable\Shader;$(SolutionDir)\imgui;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DirectionalLight.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="include\Bindable\DX14Texture.cpp" />
+    <ClCompile Include="LightBase.cpp" />
     <ClCompile Include="source\Bindable\Shader\ModelShader.cpp" />
     <ClCompile Include="source\Bindable\Shader\ShaderBase.cpp" />
     <ClCompile Include="source\Bindable\Shader\ShadowMapShader.cpp" />
@@ -162,6 +164,7 @@
     <ClCompile Include="source\Bindable\VertexShader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="source\Bindable\Bindable.cpp" />
+    <ClInclude Include="DirectionalLight.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imgui_impl_dx12.h" />
@@ -193,6 +196,7 @@
     <ClInclude Include="include\Bindable\Shader\ShadowMapShader.h" />
     <ClInclude Include="include\ImguiManager.h" />
     <ClInclude Include="include\ShadowMap.h" />
+    <ClInclude Include="LightBase.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Bindable\Bindable.h" />

@@ -7,6 +7,8 @@
 #include "Renderer.h"
 #include "Skybox.h"
 #include "Floor.h"
+#include "LightBase.h"
+#include "DirectionalLight.h"
 
 using Microsoft::WRL::ComPtr;
 
@@ -34,4 +36,6 @@ private:
 private:
 	std::vector<std::unique_ptr<class Drawable>> drawables;
 	POINT mLastMousePos;
+
+	std::vector<std::unique_ptr<LightBase>> Lights;
 };
