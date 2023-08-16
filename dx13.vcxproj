@@ -244,7 +244,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="testNewStruct.hlsl">
+    <None Include="floor.hlsl">
       <FileType>Document</FileType>
     </None>
   </ItemGroup>

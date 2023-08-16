@@ -16,7 +16,7 @@ public:
 	void UpdateShadowPassCB(Renderer& rdr);
 
 protected:
-	DirectX::XMFLOAT3 m_LightPosW = { 1.0f, 1.0f, 1.0f };
+	DirectX::XMFLOAT3 m_LightPosW = { 0.0f, 5.0f, 5.0f };
 	DirectX::XMFLOAT3 m_LightColor = { 1.0f, 1.0f, 1.0f };
 	float m_Intensity = 1.0f;
 	DirectX::XMFLOAT4X4 m_LightView = MathHelper::Identity4x4();

@@ -1,7 +1,7 @@
 #include "LightingUtil.hlsl"
 
 #ifndef NUM_DIR_LIGHTS
-#define NUM_DIR_LIGHTS 3
+#define NUM_DIR_LIGHTS 1
 #endif
 
 #ifndef NUM_POINT_LIGHTS
@@ -133,15 +133,38 @@ VertexOut VS(VertexIn vin)
 float4 PS(VertexOut pin) : SV_Target
 {
     pin.ShadowPosH.xyz /= pin.ShadowPosH.w;
-
+    float3 shadowPosH = pin.ShadowPosH.xyz;
     // Depth in NDC space.
     float depth = pin.ShadowPosH.z;
+    
+    uint width, height, numMips;
+    gShadowMap.GetDimensions(0, width, height, numMips);
+
+    // Texel size.
+    float dx = 1.0f / (float) width;
+
+    float percentLit = 0.0f;
+    const float2 offsets[9] =
+    {
+        float2(-dx, -dx), float2(0.0f, -dx), float2(dx, -dx),
+        float2(-dx, 0.0f), float2(0.0f, 0.0f), float2(dx, 0.0f),
+        float2(-dx, +dx), float2(0.0f, +dx), float2(dx, +dx)
+    };
+
+    [unroll]
+    for (int i = 0; i < 9; ++i)
+    {
+        percentLit += gShadowMap.SampleCmpLevelZero(gsamShadow,
+            shadowPosH.xy + offsets[i], depth).r;
+    }
+    
+    float shadowFactor = percentLit / 9;
 
     float4 diffuseAlbedo = gDiffuseMap.Sample(gsamAnisotropicWrap, pin.TexC);
 
-    float lightFactor = gShadowMap.SampleCmpLevelZero(gsamShadow, pin.ShadowPosH.xy, depth);
+    // float lightFactor = gShadowMap.SampleCmpLevelZero(gsamShadow, pin.ShadowPosH.xy, depth);
 
-    float4 finalColor = float4(diffuseAlbedo * gLights[0].Strength, 1.0f) * lightFactor;
+    float4 finalColor = float4(diffuseAlbedo * gLights[0].Strength, 1.0f) * shadowFactor;
 
     finalColor += diffuseAlbedo * gAmbientLight;
     

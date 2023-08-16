@@ -316,7 +316,7 @@
     <None Include="LightingUtil.hlsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="testNewStruct.hlsl">
+    <None Include="floor.hlsl">
       <Filter>Shaders</Filter>
     </None>
     <None Include="Common.hlsl">

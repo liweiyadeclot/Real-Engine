@@ -95,6 +95,11 @@ public:
 		m_RootParaType = rst;
 	}
 
+	void SetShadowTransform(const DirectX::XMFLOAT4X4& tsf)
+	{
+		m_ShadowTransform = tsf;
+	}
+
 	void SetIndexBuffer(D3D12_INDEX_BUFFER_VIEW idbv);
 	void SetVertexBuffer(D3D12_VERTEX_BUFFER_VIEW vtbv);
 	FrameResource* GetpFrameResource();

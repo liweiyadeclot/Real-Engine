@@ -13,7 +13,7 @@ Floor::Floor(Renderer& rdr)
 	rootTypes.push_back(Renderer::RootParaType::ShadowTable);
 
 
-	auto pointerToShader = std::make_unique<ShaderBase>("test", rdr, L"./testNewStruct.hlsl", rootTypes);
+	auto pointerToShader = std::make_unique<ShaderBase>("test", rdr, L"./floor.hlsl", rootTypes);
 	AddBind(std::move(pointerToShader));
 	AddTexture(std::string("bricks"), "./Models/Cube/Cube_BaseColor.png", rdr);
 	std::vector<Vertex> floorV =

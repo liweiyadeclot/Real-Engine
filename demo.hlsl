@@ -262,15 +262,15 @@ float4 PS(VertexOut pin) : SV_Target
     // calculate F0 by metallic
     float3 F0 = float3(0.04f, 0.04f, 0.04f);
     F0 = lerp(F0, float3(gDiffuseAlbedo.x, gDiffuseAlbedo.y, gDiffuseAlbedo.z), metal);
-    float3 lo = float3(0.0f, 0.0f, 0.0f);
-    /*ComputePointLight(gDiffuseAlbedo, roughness, metal,
-        gLights[1], pin.PosW, pin.NormalW, toEyeW, F0,
-        lo);
+    //float3 lo = float3(0.0f, 0.0f, 0.0f);
+    //ComputePointLight(gDiffuseAlbedo, roughness, metal,
+    //    gLights[1], pin.PosW, pin.NormalW, toEyeW, F0,
+    //    lo);
 
-    float3 lo1 = float3(0.0f, 0.0f, 0.0f);
-    ComputeDirectionalLight(gDiffuseAlbedo, roughness, metal,
-        gLights[0], pin.PosW, pin.NormalW, toEyeW, F0,
-        lo1);*/
+    //float3 lo1 = float3(0.0f, 0.0f, 0.0f);
+    //ComputeDirectionalLight(gDiffuseAlbedo, roughness, metal,
+    //    gLights[0], pin.PosW, pin.NormalW, toEyeW, F0,
+    //    lo1);
     float4 PBRLight = float4(0.0f, 0.0f, 0.0f, 0.0f);
     PBRLight = ComputeAllLights(float3(gDiffuseAlbedo.x, gDiffuseAlbedo.y, gDiffuseAlbedo.z),
         roughness, metal,
@@ -289,10 +289,6 @@ float4 PS(VertexOut pin) : SV_Target
     Material mat = { diffuseAlbedo, gFresnelR0, shininess };
 
     // Compute Light
-    /*float4 directLight = ComputeLighting(gLights, mat, pin.PosW,
-        pin.NormalW, toEyeW, shadowFactor);
-
-    float4 finalCol = directLight + ambient;*/
     float4 finalCol = (PBRLight + ambient) * diffuseAlbedo;
 
     float3 clorgb = finalCol.xyz;

@@ -11,7 +11,7 @@ void DirectionalLight::SpawnImGuiControlPanel()
 
 		ImGui::Text("Position");
 		ImGui::SliderFloat("X", &m_LightPosW.x, -60.0f, 60.0f, "%.1f");
-		ImGui::SliderFloat("Y", &m_LightPosW.y, -60.0f, 60.0f, "%.1f");
+		ImGui::SliderFloat("Y", &m_LightPosW.y, -10.0f, 60.0f, "%.1f");
 		ImGui::SliderFloat("Z", &m_LightPosW.z, -60.0f, 60.0f, "%.1f");
 	}
 	ImGui::End();
@@ -27,7 +27,7 @@ void DirectionalLight::UpdateShadowTransform(float x, float y, float z, float ra
 	XMMATRIX lightView = XMMatrixLookAtLH(lightPos, targetPos, lightUp);
 
 	XMStoreFloat3(&m_LightPosW, lightPos);
-
+	m_LightDir = XMFLOAT3(x - m_LightPosW.x, y - m_LightPosW.y, z - m_LightPosW.z);
 	// Transform bounding sphere to light space.
 	XMFLOAT3 sphereCenterLS;
 	XMStoreFloat3(&sphereCenterLS, XMVector3TransformCoord(targetPos, lightView));
@@ -62,4 +62,5 @@ void DirectionalLight::UpdateDataToRenderer(Renderer& rdr, int i)
 	rdr.Lights[i].Direction = m_LightDir;
 	rdr.Lights[i].Strength = DirectX::XMFLOAT3(m_Intensity * m_LightColor.x, m_Intensity * 
 		m_LightColor.y, m_Intensity * m_LightColor.z);
+	rdr.SetShadowTransform(m_ShadowTransform);
 }
