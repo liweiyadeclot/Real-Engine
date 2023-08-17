@@ -143,7 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DirectionalLight.cpp" />
+    <ClCompile Include="source\Lighting\DirectionalLight.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
@@ -152,7 +152,9 @@
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="include\Bindable\DX14Texture.cpp" />
-    <ClCompile Include="LightBase.cpp" />
+    <ClCompile Include="source\Lighting\LightBase.cpp" />
+    <ClCompile Include="MinimalShader.cpp" />
+    <ClCompile Include="source\Lighting\PointLight.cpp" />
     <ClCompile Include="source\Bindable\Shader\ModelShader.cpp" />
     <ClCompile Include="source\Bindable\Shader\ShaderBase.cpp" />
     <ClCompile Include="source\Bindable\Shader\ShadowMapShader.cpp" />
@@ -164,7 +166,7 @@
     <ClCompile Include="source\Bindable\VertexShader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="source\Bindable\Bindable.cpp" />
-    <ClInclude Include="DirectionalLight.h" />
+    <ClInclude Include="include\Lighting\DirectionalLight.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imgui_impl_dx12.h" />
@@ -196,7 +198,9 @@
     <ClInclude Include="include\Bindable\Shader\ShadowMapShader.h" />
     <ClInclude Include="include\ImguiManager.h" />
     <ClInclude Include="include\ShadowMap.h" />
-    <ClInclude Include="LightBase.h" />
+    <ClInclude Include="include\Lighting\LightBase.h" />
+    <ClInclude Include="MinimalShader.h" />
+    <ClInclude Include="include\Lighting\PointLight.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Bindable\Bindable.h" />
@@ -265,6 +269,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Shadow.hlsl">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="minimalShader.hlsl">
       <FileType>Document</FileType>
     </None>
   </ItemGroup>

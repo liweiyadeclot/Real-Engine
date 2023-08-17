@@ -1,6 +1,8 @@
 #pragma once
-#include "LightBase.h"
+#include "imgui.h"
 #include "Drawable.h"
+#include "LightBase.h"
+
 
 class PointLight : public LightBase, public Drawable
 {
@@ -9,10 +11,17 @@ public:
 	PointLight(Renderer& rdr);
 	~PointLight() = default;
 
-	virtual void Draw(Renderer& rdr) const noexcept override;
+	virtual void Update(float dt, Renderer& rdr) noexcept override;
+	virtual void DrawToShadowMap(Renderer& rdr) const noexcept;
 	virtual void UpdateDataToRenderer(Renderer& rdr, int i) override;
 	virtual void UpdateShadowTransform(float x, float y, float z, float radius) override;
+	virtual void SpawnImGuiControlPanel() override;
+
 private:
+	Renderer rdr;
+
 	float fallOffStart;
-	float fallOfEnd;
+	float fallOffEnd;
+
+	UINT m_IndexCount;
 };

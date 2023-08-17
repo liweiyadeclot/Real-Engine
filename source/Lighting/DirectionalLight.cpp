@@ -1,4 +1,4 @@
-#include "DirectionalLight.h"
+#include "Lighting/DirectionalLight.h"
 #include "imgui.h"
 
 void DirectionalLight::SpawnImGuiControlPanel()

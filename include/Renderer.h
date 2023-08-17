@@ -18,6 +18,7 @@ class Renderer
 	friend class ShadowMapShader;
 	friend class SkyBoxShadowMapShader;
 	friend class LightBase;
+	friend class MinimalShader;
 public:
 	enum class RootParaType
 	{

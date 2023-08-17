@@ -1,16 +1,16 @@
 #include "LightingUtil.hlsl"
 
-#ifndef NUM_DIR_LIGHTS
-#define NUM_DIR_LIGHTS 1
-#endif
+//#ifndef NUM_DIR_LIGHTS
+//#define NUM_DIR_LIGHTS 1
+//#endif
 
-#ifndef NUM_POINT_LIGHTS
-#define NUM_POINT_LIGHTS 0
-#endif
+//#ifndef NUM_POINT_LIGHTS
+//#define NUM_POINT_LIGHTS 1
+//#endif
 
-#ifndef NUM_SPOT_LIGHTS
-#define NUM_SPOT_LIGHTS 0
-#endif
+//#ifndef NUM_SPOT_LIGHTS
+//#define NUM_SPOT_LIGHTS 0
+//#endif
 
 Texture2D    gDiffuseMap : register(t0);
 Texture2D    gShadowMap  : register(t1);

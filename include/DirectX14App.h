@@ -7,8 +7,9 @@
 #include "Renderer.h"
 #include "Skybox.h"
 #include "Floor.h"
-#include "LightBase.h"
-#include "DirectionalLight.h"
+#include "Lighting/LightBase.h"
+#include "Lighting/DirectionalLight.h"
+#include "Lighting/PointLight.h"
 
 using Microsoft::WRL::ComPtr;
 
@@ -34,8 +35,8 @@ private:
 	virtual void OnMouseMove(WPARAM btnState, int x, int y)override;
 
 private:
-	std::vector<std::unique_ptr<class Drawable>> drawables;
+	std::vector<std::shared_ptr<class Drawable>> drawables;
 	POINT mLastMousePos;
 
-	std::vector<std::unique_ptr<LightBase>> Lights;
+	std::vector<std::shared_ptr<LightBase>> Lights;
 };

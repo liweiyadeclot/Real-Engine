@@ -1,4 +1,4 @@
-#include "LightBase.h"
+#include "Lighting/LightBase.h"
 
 using namespace DirectX;
 

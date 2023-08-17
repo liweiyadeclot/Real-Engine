@@ -166,7 +166,11 @@ void Renderer::DrawIndexed(UINT count, UINT StartIndexLocation, UINT BaseVertexL
 	D3D12_GPU_VIRTUAL_ADDRESS matCBAddress = matCB->GetGPUVirtualAddress() + ObjIndex * matCBByteSize;
 
 	
-	CD3DX12_GPU_DESCRIPTOR_HANDLE texHandle(m_SrvDescriptorHeaps[ObjIndex]->GetGPUDescriptorHandleForHeapStart());
+	CD3DX12_GPU_DESCRIPTOR_HANDLE texHandle;
+	if (m_SrvDescriptorHeaps[ObjIndex] != nullptr)
+	{
+		texHandle = CD3DX12_GPU_DESCRIPTOR_HANDLE(m_SrvDescriptorHeaps[ObjIndex]->GetGPUDescriptorHandleForHeapStart());
+	}
 	ID3D12DescriptorHeap* descriptorHeaps[] = { m_SrvDescriptorHeaps[ObjIndex].Get() };
 
 	CD3DX12_GPU_DESCRIPTOR_HANDLE pbrHandle;

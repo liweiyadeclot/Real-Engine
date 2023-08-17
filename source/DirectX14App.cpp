@@ -21,11 +21,17 @@ bool DX14App::Initialize()
 {
 	if(!D4DApp::Initialize())
 		return false;
-	// drawables.push_back(std::make_unique<Skybox>(rdr));
+	
+	auto ptrToPointLight = std::make_shared<PointLight>(rdr);
+
+	drawables.push_back(std::make_unique<Skybox>(rdr));
 	drawables.push_back(std::make_unique<Floor>(rdr));
 	drawables.push_back(std::make_unique<Model>(rdr));
 
 	Lights.push_back(std::make_unique<DirectionalLight>());
+	Lights.push_back(ptrToPointLight);
+	drawables.push_back(ptrToPointLight);
+
 	rdr.SetRendererState();
 	rdr.ExecuteCommands();
 	return true;
@@ -93,6 +99,7 @@ void DX14App::Draw(const GameTimer& gt)
 	{
 		d->RenderToShadowMap(rdr);
 	}
+
 	rdr.SetRenderToDrawToScreen();
 	for (auto& d : drawables)
 	{
