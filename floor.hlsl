@@ -1,16 +1,16 @@
 #include "LightingUtil.hlsl"
 
-//#ifndef NUM_DIR_LIGHTS
-//#define NUM_DIR_LIGHTS 1
-//#endif
+#ifndef NUM_DIR_LIGHTS
+#define NUM_DIR_LIGHTS 1
+#endif
 
-//#ifndef NUM_POINT_LIGHTS
-//#define NUM_POINT_LIGHTS 1
-//#endif
+#ifndef NUM_POINT_LIGHTS
+#define NUM_POINT_LIGHTS 1
+#endif
 
-//#ifndef NUM_SPOT_LIGHTS
-//#define NUM_SPOT_LIGHTS 0
-//#endif
+#ifndef NUM_SPOT_LIGHTS
+#define NUM_SPOT_LIGHTS 0
+#endif
 
 Texture2D    gDiffuseMap : register(t0);
 Texture2D    gShadowMap  : register(t1);
@@ -164,7 +164,13 @@ float4 PS(VertexOut pin) : SV_Target
 
     // float lightFactor = gShadowMap.SampleCmpLevelZero(gsamShadow, pin.ShadowPosH.xy, depth);
 
-    float4 finalColor = float4(diffuseAlbedo * gLights[0].Strength, 1.0f) * shadowFactor;
+    float3 lightStrength = 0.0f;
+    for (int i = 0; i < NUM_DIR_LIGHTS + NUM_POINT_LIGHTS + NUM_SPOT_LIGHTS; ++i)
+    {
+        lightStrength += gLights[i].Strength;
+    }
+    
+    float4 finalColor = float4(diffuseAlbedo * lightStrength, 1.0f) * shadowFactor;
 
     finalColor += diffuseAlbedo * gAmbientLight;
     

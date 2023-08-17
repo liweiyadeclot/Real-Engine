@@ -834,6 +834,9 @@ void Renderer::UpdateMainPassCB(const GameTimer& gt)
 	m_MainPassCB.Lights[0].Direction = Lights[0].Direction;
 	m_MainPassCB.Lights[0].Strength = Lights[0].Strength;
 
+	m_MainPassCB.Lights[1] = Lights[1];
+	
+
 	/*m_MainPassCB.Lights[1].Direction = m_RotatedLightDirections[1];
 	m_MainPassCB.Lights[1].Strength = { 0.4f, 0.4f, 0.4f };
 	m_MainPassCB.Lights[2].Direction = m_RotatedLightDirections[2];

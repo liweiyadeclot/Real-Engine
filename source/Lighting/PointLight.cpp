@@ -17,7 +17,7 @@ PointLight::PointLight(Renderer& rdr)
 	AddBind(std::move(pointerToShader));
 
 	GeometryGenerator geogen;
-	GeometryGenerator::MeshData lightSphere = geogen.CreateSphere(1.0f, 10, 10);
+	GeometryGenerator::MeshData lightSphere = geogen.CreateSphere(0.1f, 10, 10);
 	size_t verticesCount = lightSphere.Vertices.size();
 	std::vector<Vertex> vertices(verticesCount);
 	for (size_t i = 0; i < verticesCount; ++i)
@@ -37,13 +37,19 @@ PointLight::PointLight(Renderer& rdr)
 
 void PointLight::Update(float dt, Renderer& rdr)  noexcept
 {
-	DirectX::XMStoreFloat4x4(&m_World, DirectX::XMMatrixTranslation(m_LightPosW.x, m_LightPosW.y, m_LightPosW.z) *
-		DirectX::XMLoadFloat4x4(&m_World));
+	if (m_LightPosW.x != m_PrePos.x || m_LightPosW.y != m_PrePos.y || m_LightPosW.z != m_PrePos.z)
+	{
+		NumFramesDirty = 3;
+		m_PrePos = m_LightPosW;
+	}
+
+	DirectX::XMStoreFloat4x4(&m_World, DirectX::XMMatrixTranslation(m_LightPosW.x, m_LightPosW.y, m_LightPosW.z) );
+		
 	Drawable::Update(dt, rdr);
 	return;
 }
 
-void PointLight::DrawToShadowMap(Renderer& rdr) const noexcept
+void PointLight::RenderToShadowMap(Renderer& rdr) const noexcept
 {
 	// Do not draw shadow
 	return;

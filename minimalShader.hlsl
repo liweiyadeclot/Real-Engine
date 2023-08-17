@@ -51,11 +51,12 @@ VertexOut VS(VertexIn vin)
     vout.PosL = vin.PosL;
     float4 posW = mul(float4(vin.PosL, 1.0f), gWorld);
     vout.PosH = mul(posW, gViewProj);
+    vout.PosH.x = -vout.PosH.x;
     
     return vout;
 }
 
 float4 PS(VertexOut pin) : SV_Target
 {
-    return float4(1.0f, 1.0f, 1.0f, 1.0f);
+    return float4(1.0f, 0.0f, 0.0f, 1.0f);
 }

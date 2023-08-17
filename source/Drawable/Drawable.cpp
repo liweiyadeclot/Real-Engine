@@ -50,7 +50,8 @@ void Drawable::Update(float dt, Renderer& rdr) noexcept
 		DirectX::XMMATRIX texTransform = DirectX::XMLoadFloat4x4(&m_TexTransform);
 
 		ObjectConstants objConstants;
-		DirectX::XMStoreFloat4x4(&objConstants.World, DirectX::XMMatrixTranspose(texTransform));
+		DirectX::XMStoreFloat4x4(&objConstants.World, DirectX::XMMatrixTranspose(world));
+		DirectX::XMStoreFloat4x4(&objConstants.TexTransform, DirectX::XMMatrixTranspose(texTransform));
 
 		currObjectCB->CopyData(ObjIndex, objConstants);
 

@@ -159,10 +159,16 @@
     <ClCompile Include="imgui\imgui_impl_win32.cpp">
       <Filter>Imgui</Filter>
     </ClCompile>
-    <ClCompile Include="LightBase.cpp">
+    <ClCompile Include="MinimalShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Lighting\PointLight.cpp">
       <Filter>Source Files\Lighting</Filter>
     </ClCompile>
-    <ClCompile Include="DirectionalLight.cpp">
+    <ClCompile Include="source\Lighting\LightBase.cpp">
+      <Filter>Source Files\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Lighting\DirectionalLight.cpp">
       <Filter>Source Files\Lighting</Filter>
     </ClCompile>
   </ItemGroup>
@@ -233,9 +239,6 @@
     <ClInclude Include="include\d4dApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\DirectX14App.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Drawable\SingleTriangle.h">
       <Filter>Header Files\Drawable</Filter>
     </ClInclude>
@@ -302,10 +305,19 @@
     <ClInclude Include="imgui\imgui_impl_win32.h">
       <Filter>Imgui</Filter>
     </ClInclude>
-    <ClInclude Include="LightBase.h">
+    <ClInclude Include="include\Lighting\DirectionalLight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MinimalShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DirectX14App.h">
       <Filter>Header Files\Lighting</Filter>
     </ClInclude>
-    <ClInclude Include="DirectionalLight.h">
+    <ClInclude Include="include\Lighting\PointLight.h">
+      <Filter>Header Files\Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Lighting\LightBase.h">
       <Filter>Header Files\Lighting</Filter>
     </ClInclude>
   </ItemGroup>
@@ -329,6 +341,9 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="Shadow.hlsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="minimalShader.hlsl">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

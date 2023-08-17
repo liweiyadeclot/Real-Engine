@@ -12,7 +12,7 @@ public:
 	~PointLight() = default;
 
 	virtual void Update(float dt, Renderer& rdr) noexcept override;
-	virtual void DrawToShadowMap(Renderer& rdr) const noexcept;
+	virtual void RenderToShadowMap(Renderer& rdr) const noexcept;
 	virtual void UpdateDataToRenderer(Renderer& rdr, int i) override;
 	virtual void UpdateShadowTransform(float x, float y, float z, float radius) override;
 	virtual void SpawnImGuiControlPanel() override;
@@ -20,8 +20,8 @@ public:
 private:
 	Renderer rdr;
 
-	float fallOffStart;
-	float fallOffEnd;
+	float fallOffStart = 1.0f;
+	float fallOffEnd = 100.0f;
 
 	UINT m_IndexCount;
 };

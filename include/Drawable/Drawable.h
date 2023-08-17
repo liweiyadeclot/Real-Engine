@@ -50,6 +50,8 @@ protected:
 	DirectX::XMFLOAT4X4 m_TexTransform = MathHelper::Identity4x4();
 	std::unique_ptr<ShadowMapShader> m_ShadowShader;
 
+	DirectX::XMFLOAT3 m_PrePos = {0.0f, 0.0f, 0.0f};
+
 private:
 	const IndexBuffer* pIndexBuffer = nullptr;
 	std::unique_ptr<class DX14Texture> m_Tex;
