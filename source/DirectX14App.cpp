@@ -28,8 +28,8 @@ bool DX14App::Initialize()
 
 	auto ptrToPointLight = std::make_shared<PointLight>(rdr);
 	Lights.push_back(std::make_unique<DirectionalLight>());
-	Lights.push_back(ptrToPointLight);
-	drawables.push_back(ptrToPointLight);
+	//Lights.push_back(ptrToPointLight);
+	//drawables.push_back(ptrToPointLight);
 
 	rdr.SetRendererState();
 	rdr.ExecuteCommands();
@@ -81,15 +81,13 @@ void DX14App::Draw(const GameTimer& gt)
 	ImGui::NewFrame();
 
 	static bool show_demo_window = true;
-	// 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
-	if (show_demo_window)
-		ImGui::ShowDemoWindow(&show_demo_window);
 
 	for (auto& light : Lights)
 	{
 		light->SpawnImGuiControlPanel();
 	}
 
+	SpawnMainControlPanel();
 
 	ImGui::Render();
 
@@ -106,6 +104,8 @@ void DX14App::Draw(const GameTimer& gt)
 	}
 	rdr.DrawImGui();
 	rdr.PresentOneFrame();
+
+	
 }
 
 void DX14App::OnKeyboardInput(const GameTimer& gt)
@@ -119,7 +119,10 @@ void DX14App::OnKeyboardInput(const GameTimer& gt)
 		rdr.mCamera.Walk(-10.0f * dt);
 	if (GetAsyncKeyState('D') & 0x8000)
 		rdr.mCamera.Strafe(-10.0f * dt);
-
+	if (GetAsyncKeyState(VK_CONTROL) & 0x8000)
+		rdr.mCamera.IfControlinigCamera = true;
+	else
+		rdr.mCamera.IfControlinigCamera = false;
 	rdr.mCamera.UpdateViewMatrix();
 	return;
 }
@@ -139,7 +142,7 @@ void DX14App::OnMouseUp(WPARAM btnState, int x, int y)
 
 void DX14App::OnMouseMove(WPARAM btnState, int x, int y)
 {
-	if ((btnState & MK_LBUTTON) != 0)
+	if ((btnState & MK_LBUTTON) != 0 && rdr.mCamera.IfControlinigCamera)
 	{
 		// Make each pixel correspond to a quarter of a degree.
 		float dx = DirectX::XMConvertToRadians(0.25f * static_cast<float>(x - mLastMousePos.x));
@@ -153,6 +156,30 @@ void DX14App::OnMouseMove(WPARAM btnState, int x, int y)
 	mLastMousePos.x = x;
 	mLastMousePos.y = y;
 	return;
+}
+
+void DX14App::SpawnMainControlPanel()
+{
+	if (ImGui::Begin("MainControlPanel"))
+	{
+		if (ImGui::Button("Add Point light"));
+		{
+			auto ptrToPointLight = std::make_shared<PointLight>(rdr);
+			rdr.ClearRenderer();
+			Lights.push_back(ptrToPointLight);
+			drawables.push_back(ptrToPointLight);
+			rdr.ResetRendererState();
+			rdr.ResetRenderer();
+			rdr.ExecuteCommands();
+			rdr.ResetRenderer();
+		}
+
+		if (ImGui::Button("Add Model"))
+		{
+			showAddModelWindow = true;
+		}
+	}
+	ImGui::End();
 }
 
 

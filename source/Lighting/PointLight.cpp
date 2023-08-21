@@ -7,6 +7,7 @@
 PointLight::PointLight(Renderer& rdr)
 	: Drawable(rdr), LightBase()
 {
+	m_LightPosW = DirectX::XMFLOAT3(0.0f, 0.2f, 0.0f);
 	std::vector<Renderer::RootParaType> rootTypes;
 	rootTypes.push_back(Renderer::RootParaType::ObjectConstBuffer);
 	rootTypes.push_back(Renderer::RootParaType::MainPassConstBuffer);
@@ -83,9 +84,9 @@ void PointLight::SpawnImGuiControlPanel()
 
 
 		ImGui::Text("Position");
-		ImGui::SliderFloat("X", &m_LightPosW.x, -60.0f, 60.0f, "%.1f");
-		ImGui::SliderFloat("Y", &m_LightPosW.y, -10.0f, 60.0f, "%.1f");
-		ImGui::SliderFloat("Z", &m_LightPosW.z, -60.0f, 60.0f, "%.1f");
+		ImGui::SliderFloat("X", &m_LightPosW.x, -6.0f, 6.0f, "%.1f");
+		ImGui::SliderFloat("Y", &m_LightPosW.y, -10.0f, 10.0f, "%.1f");
+		ImGui::SliderFloat("Z", &m_LightPosW.z, -6.0f, 6.0f, "%.1f");
 	}
 	ImGui::End();
 }

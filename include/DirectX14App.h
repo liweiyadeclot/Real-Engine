@@ -34,9 +34,14 @@ private:
 	virtual void OnMouseUp(WPARAM btnState, int x, int y)override;
 	virtual void OnMouseMove(WPARAM btnState, int x, int y)override;
 
+	void SpawnMainControlPanel();
+
 private:
 	std::vector<std::shared_ptr<class Drawable>> drawables;
 	POINT mLastMousePos;
 
 	std::vector<std::shared_ptr<LightBase>> Lights;
+
+	bool showAddModelWindow = false;
+
 };

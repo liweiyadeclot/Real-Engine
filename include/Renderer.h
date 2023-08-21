@@ -86,6 +86,23 @@ public:
 		return m_PBRDescriptorHeaps[i];
 	}
 
+	void ClearRenderer()
+	{
+		ExecuteCommands();
+		m_FrameResources.clear();
+	}
+
+	void ResetRendererState()
+	{
+		for (int i = 0; i < gNumFrameResources; ++i)
+		{
+			m_FrameResources.push_back(std::make_unique<FrameResource>(m_Device.Get(),
+				2, ObjectNum, ObjectNum));
+		}
+
+		m_CurrFrameResource = m_FrameResources[m_CurrFrameResourceIndex].get();
+	}
+
 	void SetRendererState()
 	{
 		BuildFrameResource(ObjectNum);
