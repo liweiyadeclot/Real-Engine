@@ -28,8 +28,8 @@ bool DX14App::Initialize()
 
 	auto ptrToPointLight = std::make_shared<PointLight>(rdr);
 	Lights.push_back(std::make_unique<DirectionalLight>());
-	//Lights.push_back(ptrToPointLight);
-	//drawables.push_back(ptrToPointLight);
+	Lights.push_back(ptrToPointLight);
+	drawables.push_back(ptrToPointLight);
 
 	rdr.SetRendererState();
 	rdr.ExecuteCommands();
@@ -50,6 +50,8 @@ void DX14App::OnResize()
 void DX14App::Update(const GameTimer& gt)
 {
 	OnKeyboardInput(gt);
+
+	// TO-DO: Update drawables and rebuild frameResource
 
 	rdr.UpdateRenderer(gt);
 
@@ -87,7 +89,7 @@ void DX14App::Draw(const GameTimer& gt)
 		light->SpawnImGuiControlPanel();
 	}
 
-	SpawnMainControlPanel();
+	// SpawnMainControlPanel();
 
 	ImGui::Render();
 
@@ -165,13 +167,8 @@ void DX14App::SpawnMainControlPanel()
 		if (ImGui::Button("Add Point light"));
 		{
 			auto ptrToPointLight = std::make_shared<PointLight>(rdr);
-			rdr.ClearRenderer();
 			Lights.push_back(ptrToPointLight);
 			drawables.push_back(ptrToPointLight);
-			rdr.ResetRendererState();
-			rdr.ResetRenderer();
-			rdr.ExecuteCommands();
-			rdr.ResetRenderer();
 		}
 
 		if (ImGui::Button("Add Model"))
