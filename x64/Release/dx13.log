@@ -1,0 +1,141 @@
+﻿  DirectionalLight.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_dx12.cpp
+  imgui_impl_win32.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  DX14Texture.cpp
+  LightBase.cpp
+  MinimalShader.cpp
+  PointLight.cpp
+C:\Users\PC\Real-Engine\source\Lighting\PointLight.cpp(32,31): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+  ModelShader.cpp
+  ShaderBase.cpp
+C:\Users\PC\Real-Engine\source\Bindable\Shader\ShaderBase.cpp(57,63): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+  ShadowMapShader.cpp
+  SkyBoxShadowMapShader.cpp
+  DDSTextureLoader.cpp
+  Drawable.cpp
+  PixelShader.cpp
+  VertexBuffer.cpp
+  Compiling...
+  VertexShader.cpp
+  main.cpp
+  Bindable.cpp
+  d4dApp.cpp
+  DirectX14App.cpp
+C:\Users\PC\Real-Engine\source\DirectX14App.cpp(66,41): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\PC\Real-Engine\source\DirectX14App.cpp(167,40): warning C4390: ';': empty controlled statement found; is this the intent?
+  IndexBuffer.cpp
+  Camera.cpp
+  d3dUtil.cpp
+  Floor.cpp
+  Model.cpp
+  SingleTriangle.cpp
+  Skybox.cpp
+C:\Users\PC\Real-Engine\source\Drawable\Skybox.cpp(25,31): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+  FrameResource.cpp
+  GameTimer.cpp
+  GeometryGenerator.cpp
+  GLTFloader.cpp
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(66,90): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(66,70): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(66,50): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(66,30): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(65,88): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(65,68): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(65,48): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(65,29): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(64,86): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(64,67): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(64,48): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(64,29): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(63,86): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(63,67): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(63,48): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(63,29): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(181,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\PC\Real-Engine\source\GLTFloader.cpp(195,18): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  ImguiManager.cpp
+  MathHelper.cpp
+  Renderer.cpp
+C:\Users\PC\Real-Engine\source\Renderer.cpp(248,86): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+C:\Users\PC\Real-Engine\source\Renderer.cpp(251,68): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+C:\Users\PC\Real-Engine\source\Renderer.cpp(254,68): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+C:\Users\PC\Real-Engine\source\Renderer.cpp(258,62): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+  ShadowMap.cpp
+  Compiling...
+  Texture2D.cpp
+C:\Users\PC\Real-Engine\include\d3dApp.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  Part.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 6741 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  dx13.vcxproj -> C:\Users\PC\Real-Engine\x64\Release\dx13.exe
